@@ -1,0 +1,399 @@
+<title>親子食物工作坊・亦寧 Yiinning</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800&display=swap');
+
+  :root {
+    --bg: #fffaf5;
+    --surface: #ffffff;
+    --ink: #4a3d33;
+    --ink-soft: #8f7a68;
+    --ink-faint: #bfab98;
+    --coral: #d97a56;
+    --coral-deep: #b85a3a;
+    --coral-soft: #fbe4d8;
+    --spring: #e39bb8;
+    --summer: #4f9bd6;
+    --autumn: #c9762f;
+    --winter: #7ba3c4;
+    --line: rgba(74, 61, 51, 0.1);
+    --shadow: 0 1px 2px rgba(74,61,51,0.06), 0 18px 36px -18px rgba(74,61,51,0.34);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #201812; --surface: #29201a; --ink: #ede0d3; --ink-soft: #c7b6a3; --ink-faint: #8f7a68;
+      --coral: #e2916e; --coral-deep: #eba585; --coral-soft: #3c2a20;
+      --spring: #e6a8c1; --summer: #6fb0e0; --autumn: #d68f4e; --winter: #93b8d6;
+      --line: rgba(237,224,211,0.12); --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 18px 36px -18px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #201812; --surface: #29201a; --ink: #ede0d3; --ink-soft: #c7b6a3; --ink-faint: #8f7a68;
+    --coral: #e2916e; --coral-deep: #eba585; --coral-soft: #3c2a20;
+    --spring: #e6a8c1; --summer: #6fb0e0; --autumn: #d68f4e; --winter: #93b8d6;
+    --line: rgba(237,224,211,0.12); --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 18px 36px -18px rgba(0,0,0,0.6);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Noto Sans TC", "PingFang TC", sans-serif;
+    line-height: 1.85; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--coral-deep); outline-offset: 3px; border-radius: 4px; }
+
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 14px 24px; background: var(--surface); border-bottom: 1px solid var(--line);
+  }
+  .brand { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+  .brand svg { width: 24px; height: 24px; }
+  .brand span { font-weight: 700; font-size: 1.02rem; color: var(--coral-deep); }
+  .navlinks { display: flex; gap: clamp(10px, 2.4vw, 24px); flex-wrap: wrap; }
+  .navlinks a { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--ink-soft); text-decoration: none; }
+  .navlinks a:hover { color: var(--coral-deep); }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; height: min(64vh, 460px); min-height: 340px; overflow: hidden; display: flex; align-items: flex-end; }
+  .hero-photos { position: absolute; inset: 0; animation: hero-zoom 30s ease-in-out infinite alternate; }
+  .hero-photos .layer {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    opacity: 0;
+    animation: hero-fade 30s infinite;
+  }
+  .hero-photos .layer:nth-child(1) { background-image: url("food-imgs/hero-carousel-2.jpg"); background-position: center 20%; animation-delay: 0s; }
+  .hero-photos .layer:nth-child(2) { background-image: url("food-imgs/hero-carousel-3.jpg"); animation-delay: 6s; }
+  .hero-photos .layer:nth-child(3) { background-image: url("food-imgs/aiisland_finished_web.jpg"); background-position: center 40%; animation-delay: 12s; }
+  .hero-photos .layer:nth-child(4) { background-image: url("food-imgs/hero-carousel-5.jpg"); background-position: center 30%; animation-delay: 18s; }
+  .hero-photos .layer:nth-child(5) { background-image: url("food-imgs/hero-carousel-6.jpg"); background-position: center 45%; animation-delay: 24s; }
+  @keyframes hero-fade { 0%, 16% { opacity: 1; } 21.5%, 100% { opacity: 0; } }
+  @keyframes hero-zoom { 0% { transform: scale(1); } 100% { transform: scale(1.08); } }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-photos, .hero-photos .layer { animation: none; }
+    .hero-photos .layer:nth-child(1) { opacity: 1; }
+  }
+  .hero-gradient {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(28,20,14,0.72) 0%, rgba(28,20,14,0.24) 45%, rgba(28,20,14,0.05) 75%);
+  }
+  .hero-content { position: relative; z-index: 2; padding: 0 clamp(24px, 6vw, 64px) 40px; max-width: 620px; }
+  .hero-content .eyebrow { font-size: 0.72rem; letter-spacing: 0.26em; color: var(--coral-soft); font-weight: 700; margin-bottom: 12px; }
+  .hero-content h1 { margin: 0; font-weight: 700; font-size: clamp(1.8rem, 5.6vw, 2.6rem); color: #fffefc; line-height: 1.3; text-shadow: 0 3px 18px rgba(0,0,0,0.35); }
+  .hero-content p { margin: 14px 0 0; color: #fbf1e6; font-size: 0.94rem; max-width: 460px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+
+  /* ---------- intro ---------- */
+  .intro { max-width: 1020px; margin: 0 auto; padding: 68px 24px; }
+  .intro-grid { display: grid; grid-template-columns: 260px 1fr; gap: 46px; align-items: center; }
+  @media (max-width: 720px) { .intro-grid { grid-template-columns: 1fr; gap: 24px; text-align: center; justify-items: center; } }
+  .intro-photo {
+    width: 100%; aspect-ratio: 1/1;
+    border-radius: 55% 45% 40% 60% / 58% 38% 62% 42%;
+    overflow: hidden; box-shadow: var(--shadow);
+  }
+  .intro-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 68% center; display: block; }
+  .intro-text .eyebrow { font-size: 0.72rem; letter-spacing: 0.24em; color: var(--coral-deep); font-weight: 700; margin-bottom: 10px; }
+  .intro-text h2 { font-size: clamp(1.25rem, 3.4vw, 1.5rem); font-weight: 700; margin: 0 0 14px; }
+  .intro-text p { color: var(--ink-soft); font-size: 0.94rem; margin: 0 0 14px; max-width: 500px; }
+  .intro-text p:last-child { margin-bottom: 0; }
+
+  /* ---------- collaborators ---------- */
+  .collabs { max-width: 1020px; margin: 0 auto; padding: 0 24px 60px; }
+  .collabs-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  @media (max-width: 700px) { .collabs-row { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+  .collab-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 22px 20px; box-shadow: var(--shadow);
+  }
+  .collab-card h3 { margin: 0 0 8px; font-size: 0.98rem; font-weight: 700; color: var(--coral-deep); }
+  .collab-card p { margin: 0; font-size: 0.84rem; color: var(--ink-soft); }
+
+  /* ---------- projects grid ---------- */
+  .projects { max-width: 1080px; margin: 0 auto; padding: 0 24px 90px; }
+  .projects-head { text-align: center; margin-bottom: 40px; }
+  .projects-head .eyebrow { font-size: 0.72rem; letter-spacing: 0.26em; color: var(--coral-deep); font-weight: 700; margin-bottom: 10px; }
+  .projects-head h2 { font-size: clamp(1.4rem, 4.2vw, 1.8rem); font-weight: 700; margin: 0; }
+  .tabs { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 18px; margin: 0 0 44px; }
+  .tab-all {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 0.86rem; font-weight: 600;
+    padding: 8px 18px; border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+  .tab-all.active { background: var(--coral-deep); color: #fffefa; border-color: var(--coral-deep); }
+  .tab-all:active { transform: scale(0.9); }
+  .season-tab {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    background: none; border: none; padding: 0; cursor: pointer;
+    opacity: 0.45; transform: scale(0.92);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .icon-badge { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .icon-badge svg { width: 17px; height: 17px; }
+  .tab-label { font-size: 0.72rem; color: var(--ink-soft); font-weight: 600; }
+  .season-tab.active { opacity: 1; transform: scale(1.08); }
+  .season-tab.active .tab-label { color: var(--coral-deep); }
+  .season-tab:active { transform: scale(0.85); }
+  @media (prefers-reduced-motion: reduce) { .season-tab, .tab-all { transition: none; } .season-tab:active, .tab-all:active { transform: none; } }
+
+  .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: start; }
+  @media (max-width: 860px) { .proj-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .proj-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+  .proj-card {
+    background: var(--surface); border-radius: 16px; overflow: hidden;
+    box-shadow: var(--shadow); position: relative;
+  }
+  .proj-photo { position: relative; aspect-ratio: 1010/1200; overflow: hidden; background: var(--coral-soft); }
+  .proj-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; display: block; }
+  .proj-body { padding: 18px 20px 22px; }
+  .proj-title-row { display: flex; align-items: center; gap: 7px; margin: 0 0 4px; }
+  .proj-season-dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+  .proj-body h3 { margin: 0; font-size: 1.02rem; font-weight: 700; }
+  .proj-collab { font-size: 0.74rem; color: var(--coral-deep); font-weight: 600; margin-bottom: 10px; }
+  .proj-body p { margin: 0; font-size: 0.86rem; color: var(--ink-soft); }
+
+  /* ---------- cta ---------- */
+  .cta-band { position: relative; background: var(--bg); text-align: center; padding: 70px 24px; border-top: 1px solid var(--line); }
+  .cta-band .eyebrow { font-size: 0.72rem; letter-spacing: 0.26em; color: var(--coral-deep); font-weight: 700; margin-bottom: 20px; }
+  .btn-solid {
+    display: inline-flex; align-items: center; gap: 9px; padding: 13px 30px;
+    background: var(--coral-deep); color: #fffefc; border-radius: 999px; text-decoration: none;
+    font-weight: 600; font-size: 0.94rem; box-shadow: var(--shadow); transition: transform 0.15s ease;
+  }
+  .btn-solid:active { transform: scale(0.95); }
+  .btn-solid svg { width: 17px; height: 17px; }
+
+  footer.site { background: var(--surface); border-top: 1px solid var(--line); padding: 26px 24px; text-align: center; }
+  footer.site a { font-size: 0.84rem; color: var(--ink-soft); text-decoration: none; }
+  footer.site a:hover { color: var(--coral-deep); }
+</style>
+
+<nav class="top">
+  <a class="brand" href="index.html">
+    <svg viewBox="0 0 100 100"><circle cx="50" cy="28" r="18" fill="var(--coral)"/><circle cx="68.9" cy="41.6" r="18" fill="var(--coral)"/><circle cx="61.8" cy="63.6" r="18" fill="var(--coral)"/><circle cx="38.2" cy="63.6" r="18" fill="var(--coral)"/><circle cx="31.1" cy="41.6" r="18" fill="var(--coral)"/></svg>
+    <span>亦寧 Yiinning</span>
+  </a>
+  <div class="navlinks">
+    <a href="index.html">亦寧的頁面</a>
+    <a href="craft.html">親子手作・工作坊</a>
+    <a href="https://www.instagram.com/yiinning/" target="_blank" rel="noopener">IG</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-photos">
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+  </div>
+  <div class="hero-gradient"></div>
+  <div class="hero-content">
+    <div class="eyebrow">FOOD WORKSHOP COLLABORATIONS</div>
+    <h1>親子食物・工作坊</h1>
+    <p>跟不同的食物創作者一起，把當季的果實與食材，變成孩子手心裡的小小作品。</p>
+  </div>
+</section>
+
+<div class="intro">
+  <div class="intro-grid">
+    <div class="intro-photo"><img src="food-imgs/intro-photo.jpg" alt="親子一起準備食物工作坊"></div>
+    <div class="intro-text">
+      <div class="eyebrow">WHY FOOD WORKSHOP</div>
+      <h2>手作之外，另一種靠近季節的方式</h2>
+      <p>平日的親子工作坊，我們用樹枝、花草、羊毛認識四季；而食物工作坊，是換一種媒材——用當季的果實、香草與天然色素，讓孩子從「吃」與「做」之中，感受同樣的節氣流轉。</p>
+      <p>每一場都是與不同食物創作者共同發想的成果。我們討論食物在人文與自然之中扮演的角色，把故事引導、感官體驗與親子互動的初衷，延伸到餐桌與廚房裡，一起完成一件件可以帶回家、也可以吃下肚的小小作品。</p>
+    </div>
+  </div>
+</div>
+
+<div class="collabs">
+  <div class="collabs-row">
+    <div class="collab-card">
+      <h3>FU Food 福福・于寧 Uning Kuo</h3>
+      <p>能吃就是福。由美學切入民食，以菜餚、食材、食品、食譜作為視覺素材的平台，討論食物在人文與自然之中所扮演的角色。</p>
+    </div>
+    <div class="collab-card">
+      <h3>maison kami</h3>
+      <p>以食物為創作媒材的團隊，透過味覺經驗的積累傳遞生活詮釋，結合飲食、工藝與設計哲學，延伸至餐桌上的每個角落。</p>
+    </div>
+    <div class="collab-card">
+      <h3>細蒂</h3>
+      <p>來自印尼，是眾神花園親子生態聚落裡陪伴孩子們的廚藝老師，擅長運用自然素材，做出溫暖而充滿驚喜的料理。</p>
+    </div>
+  </div>
+</div>
+
+<div class="projects">
+  <div class="projects-head">
+    <div class="eyebrow">PAST PROJECTS</div>
+    <h2>合作過的親子食物・工作坊</h2>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-all active" data-filter="all">全部</button>
+    <button class="season-tab" data-filter="spring" aria-label="春">
+      <span class="icon-badge" style="background:var(--spring);">
+        <svg viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="6" r="3.2"/><circle cx="18" cy="12" r="3.2"/><circle cx="12" cy="18" r="3.2"/><circle cx="6" cy="12" r="3.2"/></svg>
+      </span>
+      <span class="tab-label">春</span>
+    </button>
+    <button class="season-tab" data-filter="summer" aria-label="夏">
+      <span class="icon-badge" style="background:var(--summer);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M3 9c3 0 3 3 6 3s3-3 6-3 3 3 6 3"/><path d="M3 15c3 0 3 3 6 3s3-3 6-3 3 3 6 3"/></svg>
+      </span>
+      <span class="tab-label">夏</span>
+    </button>
+    <button class="season-tab" data-filter="autumn" aria-label="秋">
+      <span class="icon-badge" style="background:var(--autumn);">
+        <svg viewBox="0 0 24 24"><polygon points="12,3 21,20 3,20" fill="#fff"/></svg>
+      </span>
+      <span class="tab-label">秋</span>
+    </button>
+    <button class="season-tab" data-filter="winter" aria-label="冬">
+      <span class="icon-badge" style="background:var(--winter);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M2.5 7.5l19 9M21.5 7.5l-19 9"/></svg>
+      </span>
+      <span class="tab-label">冬</span>
+    </button>
+  </div>
+
+  <div class="proj-grid">
+
+    <div class="proj-card" data-season="spring">
+      <div class="proj-photo">
+        <img src="food-imgs/dumplings_web.jpg" alt="春神來了元寶寶起床了">
+      </div>
+      <div class="proj-body">
+        <div class="proj-title-row"><span class="proj-season-dot" style="background:var(--spring);"></span><h3>春神來了元寶寶起床了</h3></div>
+        <div class="proj-collab">與 FU Food 福福・于寧 合作</div>
+        <p>捏一顆顆象徵招財納福的元寶餃子，在春天的餐桌上，包進對新一年的期待。</p>
+      </div>
+    </div>
+
+    <div class="proj-card" data-season="spring">
+      <div class="proj-photo">
+        <img src="food-imgs/springcake_web.jpg" alt="翩翩飛舞的春日花園">
+      </div>
+      <div class="proj-body">
+        <div class="proj-title-row"><span class="proj-season-dot" style="background:var(--spring);"></span><h3>翩翩飛舞的春日花園</h3></div>
+        <div class="proj-collab">與 FU Food 福福・于寧 合作</div>
+        <p>在花園裡裝飾鮮奶油蛋糕，用糯米紙畫一盞小燈罩，讓春天在手心裡翩翩飛舞。</p>
+      </div>
+    </div>
+
+    <div class="proj-card" data-season="summer">
+      <div class="proj-photo">
+        <img src="food-imgs/gemparty_web.jpg" alt="夏日閃閃寶石派對">
+      </div>
+      <div class="proj-body">
+        <div class="proj-title-row"><span class="proj-season-dot" style="background:var(--summer);"></span><h3>夏日閃閃寶石派對</h3></div>
+        <div class="proj-collab">與 FU Food 福福・于寧 合作</div>
+        <p>闖入海底的寶石派對，捏出晶亮的果凍蛋糕，再親手捲一根祝福蠟燭，迎接夏天的光。</p>
+      </div>
+    </div>
+
+    <div class="proj-card" data-season="summer">
+      <div class="proj-photo">
+        <img src="food-imgs/aiisland_finished_web.jpg" alt="艾之島">
+      </div>
+      <div class="proj-body">
+        <div class="proj-title-row"><span class="proj-season-dot" style="background:var(--summer);"></span><h3>艾之島</h3></div>
+        <div class="proj-collab">端午・與 FU Food 福福・于寧 合作</div>
+        <p>揉進艾草香氣，捏出魚兒與花朵形狀的草仔粿，再煮一碗花花紅豆湯圓，迎接初夏。</p>
+      </div>
+    </div>
+
+    <div class="proj-card" data-season="autumn">
+      <div class="proj-photo">
+        <img src="food-imgs/mooncake_web.jpg" alt="月亮圓圓月餅甜甜">
+      </div>
+      <div class="proj-body">
+        <div class="proj-title-row"><span class="proj-season-dot" style="background:var(--autumn);"></span><h3>月亮圓圓月餅甜甜</h3></div>
+        <div class="proj-collab">中秋親子工作坊</div>
+        <p>壓製冰皮月餅，包進紅豆與芋頭的香甜，在月圓的夜裡，捏出屬於自己的團圓滋味。</p>
+      </div>
+    </div>
+
+    <div class="proj-card" data-season="autumn">
+      <div class="proj-photo">
+        <img src="food-imgs/midautumn_web.jpg" alt="秋月玉兔花園">
+      </div>
+      <div class="proj-body">
+        <div class="proj-title-row"><span class="proj-season-dot" style="background:var(--autumn);"></span><h3>秋月玉兔花園</h3></div>
+        <div class="proj-collab">中秋・與 FU Food 福福・于寧 合作</div>
+        <p>用刀具把秋天的豐收蔬果，雕刻成花園裡的小小雕塑，向月亮與玉兔說聲中秋快樂。</p>
+      </div>
+    </div>
+
+    <div class="proj-card" data-season="winter">
+      <div class="proj-photo">
+        <img src="food-imgs/newyear_web.jpg" alt="大吉大利迎新年">
+      </div>
+      <div class="proj-body">
+        <div class="proj-title-row"><span class="proj-season-dot" style="background:var(--winter);"></span><h3>大吉大利迎新年</h3></div>
+        <div class="proj-collab">與 細蒂 合作</div>
+        <p>捧著金黃甜橙與百香果，攪拌出暖暖的慕斯，寫下對新年的祝福，貼在家門口。</p>
+      </div>
+    </div>
+
+    <div class="proj-card" data-season="winter">
+      <div class="proj-photo">
+        <img src="food-imgs/kami_web.jpg" alt="冬日發光樹">
+      </div>
+      <div class="proj-body">
+        <div class="proj-title-row"><span class="proj-season-dot" style="background:var(--winter);"></span><h3>冬日發光樹</h3></div>
+        <div class="proj-collab">與 maison kami 合作</div>
+        <p>擠上奶油、疊上餅乾與泡芙，做出一棵會發光的樹，把冬日的溫暖悄悄點亮。</p>
+      </div>
+    </div>
+
+    <div class="proj-card" data-season="winter">
+      <div class="proj-photo">
+        <img src="food-imgs/applegem_web.jpg" alt="冬日蘋果寶石">
+      </div>
+      <div class="proj-body">
+        <div class="proj-title-row"><span class="proj-season-dot" style="background:var(--winter);"></span><h3>冬日蘋果寶石</h3></div>
+        <div class="proj-collab">與 FU Food 福福・于寧 合作</div>
+        <p>冬日裡的紅寶石蘋果蛋糕，插上親手捲成的蜂蠟蠟燭，點亮銀白世界裡的一份暖意。</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<section class="cta-band">
+  <div class="eyebrow">GET IN TOUCH</div>
+  <a class="btn-solid" href="https://www.instagram.com/yiinning/" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+    @yiinning
+  </a>
+</section>
+
+<footer class="site">
+  <a href="index.html">← 回到亦寧的頁面</a>
+</footer>
+
+<script>
+  (function () {
+    var tabs = document.querySelectorAll('.tab-all, .season-tab');
+    var cards = document.querySelectorAll('.proj-grid .proj-card');
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        tabs.forEach(function (t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        var filter = tab.getAttribute('data-filter');
+        cards.forEach(function (card) {
+          var match = filter === 'all' || card.getAttribute('data-season') === filter;
+          card.hidden = !match;
+        });
+      });
+    });
+  })();
+</script>

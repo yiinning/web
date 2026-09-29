@@ -1,0 +1,128 @@
+<title>作品集・亦寧 Yiinning</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --bg: #fffaf5;
+    --surface: #ffffff;
+    --ink: #4a3d33;
+    --ink-soft: #8f7a68;
+    --ink-faint: #bfab98;
+    --pink-deep: #d98a9c;
+    --gold-deep: #b9852a;
+    --coral-deep: #b85a3a;
+    --line: rgba(74, 61, 51, 0.1);
+    --shadow: 0 1px 2px rgba(74,61,51,0.06), 0 18px 36px -18px rgba(74,61,51,0.34);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #201812; --surface: #29201a; --ink: #ede0d3; --ink-soft: #c7b6a3; --ink-faint: #8f7a68;
+      --pink-deep: #eab8bd; --gold-deep: #e6bf72; --coral-deep: #e2916e;
+      --line: rgba(237,224,211,0.12); --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 18px 36px -18px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #201812; --surface: #29201a; --ink: #ede0d3; --ink-soft: #c7b6a3; --ink-faint: #8f7a68;
+    --pink-deep: #eab8bd; --gold-deep: #e6bf72; --coral-deep: #e2916e;
+    --line: rgba(237,224,211,0.12); --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 18px 36px -18px rgba(0,0,0,0.6);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Noto Sans TC", "PingFang TC", sans-serif;
+    line-height: 1.85; -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--pink-deep); outline-offset: 3px; border-radius: 4px; }
+
+  nav.top {
+    position: sticky; top: 0; z-index: 40;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 14px 24px; background: var(--surface); border-bottom: 1px solid var(--line);
+  }
+  .brand { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+  .brand svg { width: 26px; height: 26px; }
+  .brand span { font-weight: 700; font-size: 1.1rem; color: var(--pink-deep); }
+  .navlinks { display: flex; gap: clamp(10px, 2.4vw, 26px); flex-wrap: wrap; }
+  .navlinks a { font-size: 0.8rem; letter-spacing: 0.04em; color: var(--ink-soft); text-decoration: none; }
+  .navlinks a:hover { color: var(--pink-deep); }
+
+  .head { text-align: center; max-width: 620px; margin: 0 auto; padding: 64px 24px 20px; }
+  .head .eyebrow { font-size: 0.72rem; letter-spacing: 0.26em; color: var(--pink-deep); font-weight: 700; margin-bottom: 12px; }
+  .head h1 { margin: 0; font-weight: 700; font-size: clamp(1.6rem, 5vw, 2.1rem); }
+  .head p { color: var(--ink-soft); margin: 16px 0 0; font-size: 0.96rem; }
+
+  .cards { max-width: 1000px; margin: 0 auto; padding: 40px 24px 90px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  @media (max-width: 700px) { .cards { grid-template-columns: 1fr; max-width: 440px; } }
+
+  .pick-card {
+    display: block; text-decoration: none; color: inherit;
+    background: var(--surface); border-radius: 20px; overflow: hidden;
+    box-shadow: var(--shadow); position: relative;
+    transition: transform 0.25s ease;
+  }
+  .pick-card:hover { transform: translateY(-4px); }
+  .pick-photo { aspect-ratio: 4/3; overflow: hidden; }
+  .pick-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+  .pick-card:hover .pick-photo img { transform: scale(1.05); }
+  .pick-body { padding: 26px 26px 30px; text-align: center; }
+  .pick-body .eyebrow { font-size: 0.68rem; letter-spacing: 0.22em; font-weight: 700; margin-bottom: 10px; }
+  .pick-body h2 { margin: 0 0 10px; font-size: 1.2rem; font-weight: 700; }
+  .pick-body p { color: var(--ink-soft); font-size: 0.9rem; margin: 0 0 20px; }
+  .pick-go {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 0.86rem; font-weight: 700;
+  }
+  .pick-go svg { width: 14px; height: 14px; }
+
+  .pick-card.craft .eyebrow, .pick-card.craft .pick-go { color: var(--gold-deep); }
+  .pick-card.food .eyebrow, .pick-card.food .pick-go { color: var(--coral-deep); }
+
+  footer.site { background: var(--surface); border-top: 1px solid var(--line); padding: 26px 24px; text-align: center; }
+  footer.site a { font-size: 0.84rem; color: var(--ink-soft); text-decoration: none; }
+  footer.site a:hover { color: var(--pink-deep); }
+</style>
+
+<nav class="top">
+  <a class="brand" href="index.html">
+    <svg viewBox="0 0 100 100"><circle cx="50" cy="28" r="18" fill="var(--pink-deep)"/><circle cx="68.9" cy="41.6" r="18" fill="var(--pink-deep)"/><circle cx="61.8" cy="63.6" r="18" fill="var(--pink-deep)"/><circle cx="38.2" cy="63.6" r="18" fill="var(--pink-deep)"/><circle cx="31.1" cy="41.6" r="18" fill="var(--pink-deep)"/></svg>
+    <span>亦寧 Yiinning</span>
+  </a>
+  <div class="navlinks">
+    <a href="index.html">亦寧的頁面</a>
+    <a href="https://www.instagram.com/yiinning/" target="_blank" rel="noopener">IG</a>
+  </div>
+</nav>
+
+<div class="head">
+  <div class="eyebrow">PORTFOLIO</div>
+  <h1>作品集</h1>
+  <p>兩種靠近四季的方式——用手作，也用食物。挑一個想看的往下走。</p>
+</div>
+
+<div class="cards">
+  <a class="pick-card craft" href="craft.html">
+    <div class="pick-photo"><img src="portfolio-imgs/hero-dried-flowers.jpg" alt="親子手作・工作坊"></div>
+    <div class="pick-body">
+      <div class="eyebrow">HANDCRAFT</div>
+      <h2>親子手作・工作坊</h2>
+      <p>樹枝、花草、羊毛與蜂蠟，跟著四季走過的每一場親子手作。</p>
+      <span class="pick-go">查看作品集 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></span>
+    </div>
+  </a>
+
+  <a class="pick-card food" href="food.html">
+    <div class="pick-photo"><img src="food-imgs/aiisland_finished_web.jpg" alt="親子食物・工作坊"></div>
+    <div class="pick-body">
+      <div class="eyebrow">FOOD</div>
+      <h2>親子食物・工作坊</h2>
+      <p>跟不同的食物創作者合作，把當季食材變成孩子手心裡的作品。</p>
+      <span class="pick-go">查看作品集 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></span>
+    </div>
+  </a>
+</div>
+
+<footer class="site">
+  <a href="index.html">← 回到亦寧的頁面</a>
+</footer>
