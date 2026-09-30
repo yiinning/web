@@ -95,9 +95,10 @@
     background: var(--surface);
     border-bottom: 1px solid var(--line);
   }
-  .brand { display: flex; align-items: center; gap: 8px; text-decoration: none; }
-  .brand svg { width: 26px; height: 26px; }
-  .brand span { font-weight: 700; font-size: 1.1rem; color: var(--pink-deep); }
+  .brand { display: flex; align-items: center; gap: 8px; text-decoration: none; flex: none; }
+  .brand svg { width: 26px; height: 26px; flex: none; }
+  .brand span { font-weight: 700; font-size: 1.1rem; color: var(--pink-deep); white-space: nowrap; }
+  @media (max-width: 420px) { .brand span { font-size: 0.94rem; } .brand svg { width: 22px; height: 22px; } }
   .navlinks { display: flex; gap: clamp(10px, 2.4vw, 26px); flex-wrap: wrap; }
   .navlinks a { font-size: 0.8rem; letter-spacing: 0.04em; color: var(--ink-soft); text-decoration: none; }
   .navlinks a:hover { color: var(--pink-deep); }
@@ -367,7 +368,6 @@
     <a href="#services">我提供的</a>
     <a href="#courses">近期課程</a>
     <a href="portfolio.html">作品集</a>
-    <a href="https://www.instagram.com/yiinning/" target="_blank" rel="noopener">IG</a>
   </div>
 </nav>
 
@@ -528,10 +528,8 @@
         <svg viewBox="0 0 100 100"><circle cx="50" cy="28" r="18" fill="var(--pink)"/><circle cx="68.9" cy="41.6" r="18" fill="var(--pink)"/><circle cx="61.8" cy="63.6" r="18" fill="var(--pink)"/><circle cx="38.2" cy="63.6" r="18" fill="var(--pink)"/><circle cx="31.1" cy="41.6" r="18" fill="var(--pink)"/><circle cx="50" cy="48" r="13" fill="var(--gold)"/></svg>
         <span>亦寧 Yiinning</span>
       </a>
-      <p>華德福幼教師訓出身，陪伴孩子跟著四季的節奏手作、生活。歡迎追蹤，看看孩子與自然相遇的日常。</p>
     </div>
     <div class="footer-col">
-      <h4>快速連結</h4>
       <a href="#story">陪伴故事</a>
       <a href="#services">我提供的</a>
       <a href="#courses">近期課程</a>
@@ -542,7 +540,6 @@
       <a href="https://www.instagram.com/yiinning/" target="_blank" rel="noopener">Instagram @yiinning</a>
     </div>
   </div>
-  <div class="footer-bottom">亦寧 Yiinning・華德福幼兒陪伴老師</div>
 </footer>
 </body>
 </html>
